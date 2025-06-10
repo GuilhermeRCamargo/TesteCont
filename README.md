@@ -1,6 +1,6 @@
 # 📦 API de Consulta de Endereço por CEP
 
-Este repositório contém uma API simples desenvolvida em Delphi, capaz de consultar informações completas de um endereço com base em um **CEP (Código de Endereçamento Postal)** brasileiro.
+Este repositório contém uma API simples desenvolvida em Delphi XE 12, capaz de consultar informações completas de um endereço com base em um **CEP (Código de Endereçamento Postal)** brasileiro.
 
 ---
 
@@ -54,3 +54,22 @@ Retorna um objeto JSON contendo os dados do endereço. Em caso de erro ou CEP in
         "unidade": ""
     }
 }
+```
+## 🧱 Padrões de Projeto e Organização
+
+Este projeto adota uma arquitetura **modular e em camadas**, com separação clara de responsabilidades entre os componentes. A estrutura foi inspirada em boas práticas de Clean Architecture e MVC, adaptadas ao contexto do Delphi com DataSnap.
+
+---
+
+## 👩‍💻 Guia para Desenvolvedores
+
+- **Adicionar um novo provedor de CEP?**  
+  Crie uma nova unit no diretório `provider/endereco/` e implemente a interface `IEnderecoProvider`.
+
+- **Deseja expor uma nova funcionalidade no servidor?**  
+  Crie um método em `ServerMethods.pas` e use `TJSONObject` para entrada/saída.
+
+- **Criar um novo modelo de dados?**  
+  Crie a classe em `model/entities/` e implemente os métodos `FromJSON` e `ToJSON`.
+
+---
