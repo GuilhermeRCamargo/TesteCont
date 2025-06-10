@@ -30,20 +30,24 @@ const URL = 'https://cdn.apicep.com/file/apicep/%s.json';
   end;
 begin
   Result := nil;
-  var JSON: TJSONObject := TRestClientHelper.GetJSON(Format(URL, [NormalizarCEP]));
-  if Assigned(JSON) then
   try
-    if not (JSON.GetValue('erro') is TJSONTrue) then
-    begin
-      Result := TEndereco.Create;
-      Result.CEP := TJSONHelper.GetJSONStringValue(JSON, 'code');
-      Result.Logradouro := TJSONHelper.GetJSONStringValue(JSON, 'address');
-      Result.Bairro := TJSONHelper.GetJSONStringValue(JSON, 'district');
-      Result.Cidade := TJSONHelper.GetJSONStringValue(JSON, 'city');
-      Result.UF := TJSONHelper.GetJSONStringValue(JSON, 'state');
+    var JSON: TJSONObject := TRestClientHelper.GetJSON(Format(URL, [NormalizarCEP]));
+    if Assigned(JSON) then
+    try
+      if not (JSON.GetValue('erro') is TJSONTrue) then
+      begin
+        Result := TEndereco.Create;
+        Result.CEP := TJSONHelper.GetJSONStringValue(JSON, 'code');
+        Result.Logradouro := TJSONHelper.GetJSONStringValue(JSON, 'address');
+        Result.Bairro := TJSONHelper.GetJSONStringValue(JSON, 'district');
+        Result.Cidade := TJSONHelper.GetJSONStringValue(JSON, 'city');
+        Result.UF := TJSONHelper.GetJSONStringValue(JSON, 'state');
+      end;
+    finally
+      JSON.Free;
     end;
-  finally
-    JSON.Free;
+  except
+    result := nil;
   end;
 end;
 
