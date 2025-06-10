@@ -1,0 +1,41 @@
+Retorno Via CEP
+{
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "unidade": "",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "estado": "São Paulo",
+  "regiao": "Sudeste",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+}
+
+Retorno apicep.com
+{
+  "code": "download_cap_exceeded",
+  "message": "Cannot download file, download bandwidth or transaction (Class B) cap exceeded. See the Caps & Alerts page to increase your cap.",
+  "status": 403
+}
+
+{"status":200,
+ "code":"06233-030",
+ "state":"SP",
+ "city":"Osasco",
+ "district":"Piratininga",
+ "address":"Rua Paula Rodrigues"}
+
+awesomeapi
+{
+    "cep": "01001000",
+    "address_type": "Praça",
+    "address_name": "da Sé",
+    "address": "Praça da Sé",
+    "state": "SP",
+    "district": "Sé",
+    "lat": "-23.5502784",
+    "lng": "-46.6342179",
